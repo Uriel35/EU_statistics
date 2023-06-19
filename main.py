@@ -3,6 +3,7 @@ import re
 import matplotlib
 matplotlib.use('TkAgg')  # Cambiar el backend a TkAgg
 import matplotlib.pyplot as plt
+import matplotlib.colors as mcolors
 import pandas as pd
 import seaborn as sns
 from utils import colors_util as colors, fx_utils as fx_utils
@@ -206,7 +207,7 @@ data_2023 = 'data/2023/anon_data_2023.csv'
 # vacancies_applicants_chart(desertion_path=desercion_2022, data_path=data_2022, puntaje_final=True)
 # desertion_chart(desertion_path=desercion_2022)
 # free_vacancies_chart(desertion_path=desercion_2022)
-# score_variation_by_speciality_chart(data_path=data_2022)
+score_variation_by_speciality_chart(data_path=data_2022)
 # score_chart(data_path=data_2022)
 # applicants_pie_chart(desertion_path=desercion_2022)
 # vacancies_pie_chart(desertion_path=desercion_2023)
