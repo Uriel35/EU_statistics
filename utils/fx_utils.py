@@ -44,13 +44,5 @@ def replace_speciality_names(especialidad):
         especialidad = 'Cx de tórax'
     elif especialidad == "Neurocirugía Pediátrica":
         especialidad = 'NeuroCx pediátrica'
-    # elif especialidad == "Inmunología . básica":
-    #     especialidad = 'Inmunología'
-    # elif especialidad == "Inmunología . básica":
-    #     especialidad = 'Inmunología'
-    # elif especialidad == "Inmunología . básica":
-    #     especialidad = 'Inmunología'
-
-
 
     return especialidad
