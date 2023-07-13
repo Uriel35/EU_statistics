@@ -4,5 +4,7 @@
 
 
 Hechos:
+--- En score chart, eliminar las filas que tienen como puntaje == 0 (promedios en 2022)
+--- Meter bien los y ticks en los puntajes
 --- Ponerle colores a cada especialidad en los Pie charts
 --- Hacer el desercion.csv
