@@ -2,7 +2,7 @@ Especialidad,Postulantes,Cupos,Resto
 Cirugia,416,142,274
 Pediatria,325,422,-97
 Anestesiologia,316,95,221
-Tocoginecologia,312,277,35
+Tocoginecologia,312,176,136
 Clinica medica,308,305,3
 Cardiologia,232,65,167
 Traumatologia,195,141,54
@@ -13,7 +13,7 @@ Psiquiatria,98,83,15
 Familiar,97,184,-87
 Urologia,94,26,68
 UTI,92,131,-39
-Neurocirugia,91,25,66
+NeuroCx,91,25,66
 Neurologia,85,18,67
 ORL,82,23,59
 Gastroenterologia,73,30,43

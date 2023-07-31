@@ -19,7 +19,7 @@ Fisiatria,19,13,6
 Gastroenterologia,126,28,98
 Genetica,8,6,2
 Geriatria,6,3,3
-Tocoginecologia,316,283,33
+Tocoginecologia,316,181,135
 Hematologia,25,20,5
 Hemoterapia,1,4,-3
 Infectologia,30,31,-1
@@ -28,7 +28,7 @@ Aeronautica y espacial,1,0,1
 Familiar,87,191,-104
 Nefrologia,34,24,10
 Neumonologia,22,28,-6
-Neurocirugia,125,26,99
+NeuroCx,125,26,99
 NeuroCx pediatrica,3,1,2
 Neurologia,100,25,75
 Oftalmologia,231,28,203
