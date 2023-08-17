@@ -1347,23 +1347,23 @@ fe0cfbf2-47b3-4764-8394-cfcd850ba393,Clinica,,47.0,23.5,264,262,2,3.0,18.0
 155d2c9f-ac91-4bb2-a67c-a43504dcfe11,Clinica,5.8,30.0,20.8,247,264,-17,0.0,0.0
 29e6d7e1-38f8-4743-99af-ecfd80692379,Clinica,,34.0,17.0,265,265,0,0.0,1.0
 074f4f80-3050-4934-8c3d-7e67ac5d88b2,Clinica,,31.0,15.5,266,266,0,0.0,0.0
-a5eea109-cbb5-4dfd-b458-df2e07fab278,Clinica medica,8.8,,,1,1,0,,
-e35d7376-3d54-4476-bfde-d60e85c2e1dd,Clinica medica,8.75,,,2,2,0,,
-d50bda7a-5319-42e2-8dfb-aff827c75665,Clinica medica,8.7,,,3,3,0,,
-771a39a2-1bd1-4f2d-9bd5-49b88e06135f,Clinica medica,8.0,,,4,4,0,,
-ee7be41e-ff6c-4f72-9600-1e49b772c4ad,Clinica medica,7.87,,,5,5,0,,
-41e9f50e-d685-420d-935a-4867475be09b,Clinica medica,7.85,,,6,6,0,,
-38377af2-f99a-4eb4-8079-ad56b9e4a1c8,Clinica medica,7.66,,,7,7,0,,
-4ad50417-aca0-4ac3-be9b-623f604998c7,Clinica medica,7.61,,,8,8,0,,
-8ff1ca10-9ba3-49a4-abfe-01505163a240,Clinica medica,7.35,,,9,9,0,,
-129a1b31-b24c-44af-9d77-d2e8f4bd7e7a,Clinica medica,7.25,,,10,10,0,,
-b8fc1b38-f4e8-4aa0-97e5-183dd86f7182,Clinica medica,7.09,,,11,11,0,,
-aaf6f1f6-e8c5-4276-ba5c-6c25969ecf3d,Clinica medica,6.8,,,12,12,0,,
-e31b8c55-4ded-4593-aee5-eac8e4532156,Clinica medica,6.4,,,13,13,0,,
-2363c876-be90-4401-8e70-5a1a961e7980,Clinica medica,5.94,,,14,14,0,,
-e2cb2d31-ec8b-49e8-84fb-2af911cc66ad,Clinica medica,5.63,,,15,15,0,,
-77d2baf6-32cf-4954-b780-f0c542a64d0c,Clinica medica,5.51,,,16,16,0,,
-6429af49-5a64-435e-b5b9-c31288fcdf33,Clinica medica,,,,17,17,0,,
+a5eea109-cbb5-4dfd-b458-df2e07fab278,Clinica,8.8,,,1,1,0,,
+e35d7376-3d54-4476-bfde-d60e85c2e1dd,Clinica,8.75,,,2,2,0,,
+d50bda7a-5319-42e2-8dfb-aff827c75665,Clinica,8.7,,,3,3,0,,
+771a39a2-1bd1-4f2d-9bd5-49b88e06135f,Clinica,8.0,,,4,4,0,,
+ee7be41e-ff6c-4f72-9600-1e49b772c4ad,Clinica,7.87,,,5,5,0,,
+41e9f50e-d685-420d-935a-4867475be09b,Clinica,7.85,,,6,6,0,,
+38377af2-f99a-4eb4-8079-ad56b9e4a1c8,Clinica,7.66,,,7,7,0,,
+4ad50417-aca0-4ac3-be9b-623f604998c7,Clinica,7.61,,,8,8,0,,
+8ff1ca10-9ba3-49a4-abfe-01505163a240,Clinica,7.35,,,9,9,0,,
+129a1b31-b24c-44af-9d77-d2e8f4bd7e7a,Clinica,7.25,,,10,10,0,,
+b8fc1b38-f4e8-4aa0-97e5-183dd86f7182,Clinica,7.09,,,11,11,0,,
+aaf6f1f6-e8c5-4276-ba5c-6c25969ecf3d,Clinica,6.8,,,12,12,0,,
+e31b8c55-4ded-4593-aee5-eac8e4532156,Clinica,6.4,,,13,13,0,,
+2363c876-be90-4401-8e70-5a1a961e7980,Clinica,5.94,,,14,14,0,,
+e2cb2d31-ec8b-49e8-84fb-2af911cc66ad,Clinica,5.63,,,15,15,0,,
+77d2baf6-32cf-4954-b780-f0c542a64d0c,Clinica,5.51,,,16,16,0,,
+6429af49-5a64-435e-b5b9-c31288fcdf33,Clinica,,,,17,17,0,,
 8485d361-e911-4356-a67e-7bb8a9510515,Cx cardiovascular,9.12,86.0,52.12,1,1,0,99.0,99.0
 4ffd3a0b-ca9a-4070-9bfa-2f017e625c34,Cx cardiovascular,9.07,84.0,51.07,2,2,0,98.0,98.0
 a429b03e-a334-4103-a8ed-92a0b3572ae1,Cx cardiovascular,8.09,80.0,48.09,7,3,4,94.0,94.0
@@ -2560,10 +2560,10 @@ b2be844b-8cec-4b20-9ba4-85b3a187066c,NeuroCx,7.22,35.0,24.72,79,117,-38,4.0,2.0
 af695266-ece8-451a-8229-b262eae84d01,NeuroCx,5.24,33.0,21.74,117,122,-5,1.0,1.0
 2fac869f-eb38-4e8b-b7d6-2253aed991d0,NeuroCx pediatrica,7.56,77.0,46.06,1,1,0,89.0,90.0
 cb8ea7b1-9bb4-41bf-bcad-e5960efca421,NeuroCx pediatrica,6.65,71.0,42.15,2,2,0,74.0,78.0
-9799a6e8-ff0d-45b7-b2c9-4fb9c0da3474,Neurocirugia,8.72,,,1,1,0,,
-07bca31a-d562-4a45-ac37-7349b65abef9,Neurocirugia,8.16,,,2,2,0,,
-0dcd3dc3-37dd-4f24-9b2c-1a222e2a8023,Neurocirugia,8.07,,,3,3,0,,
-2ed74d45-20a9-48fe-8c7d-68b85da081b6,Neurocirugia,4.7,,,4,4,0,,
+9799a6e8-ff0d-45b7-b2c9-4fb9c0da3474,NeuroCx,8.72,,,1,1,0,,
+07bca31a-d562-4a45-ac37-7349b65abef9,NeuroCx,8.16,,,2,2,0,,
+0dcd3dc3-37dd-4f24-9b2c-1a222e2a8023,NeuroCx,8.07,,,3,3,0,,
+2ed74d45-20a9-48fe-8c7d-68b85da081b6,NeuroCx,4.7,,,4,4,0,,
 8ac22370-2503-40bd-8559-22185549dd3a,Neurologia,9.48,86.0,52.48,1,1,0,99.0,99.0
 e8d7d460-59f4-418a-96da-7e3770794cde,Neurologia,9.07,86.0,52.07,6,2,4,99.0,99.0
 6d210502-c0a8-4f51-9556-bc6e7a835a75,Neurologia,8.6,85.0,51.1,15,3,12,98.0,98.0

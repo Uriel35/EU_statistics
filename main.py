@@ -22,8 +22,9 @@ def vacancies_applicants_chart(desertion_path, data_path, puntaje="Promedio"):
     df = df.set_index('Especialidad')
     df = df.sort_values(by="Postulantes", ascending=False)
 
-    for df_fragment in [df[0:15], df[15:30], df[30:]]:
-        print(df_fragment)
+    year = re.search('\d{4}', desertion_path).group()
+
+    for i, df_fragment in enumerate([df[0:15], df[15:30], df[30:]]):
         max_applicants = df_fragment['Postulantes'].max()
         fig, ax = plt.subplots()
         for especialidad in df_fragment.index:
@@ -35,7 +36,7 @@ def vacancies_applicants_chart(desertion_path, data_path, puntaje="Promedio"):
                 ax.bar(especialidad_label, [cupos], color=colors.celeste)
                 ax.bar(especialidad_label, [resto], bottom=cupos, color=colors.rojo)
                 limit = get_limit(especialidad=especialidad, resto=resto, data_path=data_path, puntaje=puntaje)
-                plt.text(especialidad_label, cupos + (max_applicants * 0.06), str(limit), ha='center', va='top')
+                plt.text(especialidad_label, cupos + (max_applicants * 0.06), str(round(limit, 1)), ha='center', va='top', fontsize=7)
             elif resto < 0:
                 ax.bar(especialidad_label, [postulantes], color=colors.celeste)
                 ax.bar(especialidad_label, [resto * (-1)], bottom=postulantes, color=colors.verde)
@@ -51,10 +52,11 @@ def vacancies_applicants_chart(desertion_path, data_path, puntaje="Promedio"):
         ax2.locator_params(axis='y', integer=True)
 
         plt.legend(referencias, ['Cupos tomados', 'Postulantes sin cupo', 'Cupos sobrantes'])
-        ax.tick_params(axis='x', labelrotation=45)
+        ax.tick_params(axis='x', labelrotation=90)
         plt.title(f'Habilitados y Cupos, ({puntaje} limites en postulantes sin cupo)')
         plt.xlabel('Especialidad')
         plt.ylabel('Postulantes, Cupos')
+        plt.savefig(f'./images/{year}/diff_vacancie_applicant_{re.sub(" ", "_", puntaje.lower())}_chart_p{i + 1}.png', dpi=300, bbox_inches='tight')
         plt.show()
 
 
@@ -67,13 +69,15 @@ def desertion_chart(desertion_path):
 
     plt.bar(desercion_df['Especialidad'], desercion_df['Resto'], color=colors.rojo)
     for i, valor in enumerate(desercion_df['Resto']):
-        plt.annotate(str(valor), xy=(i, valor), xytext=(0, 5), textcoords='offset points', ha='center', fontsize=10)
-    plt.tick_params(axis='x', labelrotation=45, labelsize=8)
+        plt.annotate(str(valor), xy=(i, valor), xytext=(0, 5), textcoords='offset points', ha='center', fontsize=7)
+    plt.tick_params(axis='x', labelrotation=90, labelsize=8)
     plt.suptitle('Postulantes sin cupo segun especialidad')
     total_desertion = desercion_df[desercion_df['Resto'] > 0 ]['Resto'].sum()
     plt.title(f'({total_desertion} postulantes totales sin cupo)', fontsize=10)
     plt.xlabel('Especialidad')
     plt.ylabel('Postulantes sin cupos')
+    year = re.search('\d{4}', desertion_path).group()
+    plt.savefig(f'./images/{year}/desertion_chart.png', dpi=300, bbox_inches='tight')
     plt.show()
 
 
@@ -87,11 +91,13 @@ def free_vacancies_chart(desertion_path):
     plt.bar(desercion_df['Especialidad'], desercion_df['Resto'], color=colors.verde)
     for i, valor in enumerate(desercion_df['Resto']):
         plt.annotate(str(valor), xy=(i, valor), xytext=(0, 5), textcoords='offset points', ha='center', fontsize=10)
-    plt.tick_params(axis='x', labelrotation=45, labelsize=8)
+    plt.tick_params(axis='x', labelrotation=90, labelsize=8)
     plt.suptitle('Cupos libres segun especialidad', fontsize=13)
     plt.title(f'({total} cupos libres en total)', fontsize=9)
     plt.xlabel('Especialidad')
     plt.ylabel('Cupos libres')
+    year = re.search('\d{4}', desertion_path).group()
+    plt.savefig(f'./images/{year}/vacancies_chart.png', dpi=300, bbox_inches='tight')
     plt.show()
 
 
@@ -115,12 +121,14 @@ def score_variation_by_speciality_chart(data_path, puntaje="Promedio"):
         ax2 = ax.twinx()
         ax2.set_ylim(ax.get_ylim())
 
+
         plt.xlabel('Especialidad')
         plt.ylabel(puntaje)
         plt.suptitle(f'Distribución del {puntaje} por especialidad', fontsize=15)
-        ax.tick_params(axis='x', labelrotation=45, labelsize=8)
+        ax.tick_params(axis='x', labelrotation=90, labelsize=8)
 
-        # plt.savefig(f'./images/score/score_box_chart_p{i + 1}.png', dpi=300)
+        year = re.search('\d{4}', data_path).group()
+        plt.savefig(f'./images/{year}/{re.sub(" ", "_", puntaje.lower())}_box_chart_p{i + 1}.png', dpi=300, bbox_inches='tight')
         plt.show()
 
 
@@ -132,7 +140,7 @@ def score_chart(data_paths, years, puntaje='Promedio', interval=0.2):
         score_df = score_df.dropna(how='all')
         score_df = score_df.sort_values(puntaje)
 
-        media = score_df[puntaje].mean()
+        # media = round(score_df[puntaje].mean(), 2)
 
         conteo = score_df[puntaje].dropna()
         divisor = 10 / (10 * interval)
@@ -152,7 +160,8 @@ def score_chart(data_paths, years, puntaje='Promedio', interval=0.2):
     ax.set_xlabel(puntaje)
     ax.legend()
     plt.suptitle(f'Distribucion de {puntaje} general', fontsize=13)
-    # plt.title(f'(Media de {round(media, 2)})', fontsize=9)
+    # plt.title(f'Media de ({media})', fontsize=10)
+    plt.savefig(f'./images/general/{re.sub(" ", "_", puntaje.lower())}_chart.png', dpi=300, bbox_inches='tight')
 
     plt.show()
 
@@ -172,7 +181,8 @@ def applicants_pie_chart(desertion_path):
     upper_df = upper_df._append(others_for_pie_df)
     plt.pie(upper_df['Porcentaje'], labels=[fx_utils.replace_speciality_names(label) for label in upper_df.index], autopct='%1.1f%%', startangle=90, colors=[colors.speciality_colors.get(i, 'gray') for i in upper_df.index])
     plt.title('% Postulantes a especialidad', fontsize=13)
-    # plt.savefig('./images/applicants/applicants_pie.png')
+    year = re.search('\d{4}', desertion_path).group()
+    plt.savefig(f'./images/{year}/applicants_pie_chart.png', dpi=300, bbox_inches='tight')
     plt.show()
 
 
@@ -192,61 +202,37 @@ def vacancies_pie_chart(desertion_path):
 
     plt.pie(upper_df['Porcentaje'], labels=[fx_utils.replace_speciality_names(label) for label in upper_df.index], autopct='%1.1f%%', startangle=90, colors=[colors.speciality_colors.get(i, 'gray') for i in upper_df.index])
     plt.title('% Cupos oficiales por especialidad', fontsize=13)
-    # plt.savefig('./images/vacancies/vacancies_pie.png')
-    plt.show()
+    year = re.search('\d{4}', desertion_path).group()
+    plt.savefig(f'./images/{year}/vacancies_pie_chart.png', dpi=300, bbox_inches='tight')
 
-
-def all_years_score_chart(desertion_paths, interval, puntaje):
-    fig, ax = plt.subplots()
-    colors_list = list(colors.speciality_colors.values())
-    referencias = {}
-
-    for path in desertion_paths:
-        df = pd.read_csv(path)
-        df[puntaje] = df[puntaje].dropna()
-        df = df[df[puntaje] != 0]
-
-        divisor = 10 / (10 * interval)
-        conteo = df[puntaje].dropna().apply(lambda x: round(x * divisor) / divisor)
-        conteo = conteo.value_counts().sort_index()
-
-        ax.plot(conteo.index, conteo.values, color=colors_list[0])
-        ax.scatter(conteo.index, conteo.values, color=colors_list[0])
-        referencias[re.search('\d{1,4}', path).group()] = plt.Rectangle((0, 0), 1, 1, color=colors_list[0])
-        colors_list = colors_list[1:]
-
-    plt.suptitle(f'Distribucion de {puntaje} general', fontsize=13)
-    plt.title(f'Redondeados por un intervalo de {interval}', fontsize=10)
-    ax.set_ylabel('Cantidad')
-    ax.set_xlabel(puntaje)
-    plt.legend(referencias.values(), referencias.keys())
     plt.show()
 
 
 def make_reincidence_bar_plot(reincidence_path):
     reincidence_df = pd.read_csv(reincidence_path)
 
-    especialidad = reincidence_df['Especialidad_vieja_22'].value_counts()
+    especialidad = reincidence_df['Especialidad_22'].value_counts()
     nueva_especialidad = reincidence_df['Especialidad_23'].value_counts()
 
     reincidence_df = pd.concat([especialidad, nueva_especialidad], axis=1, keys=[especialidad.index.name, nueva_especialidad.index.name])
 
     ## Para que sea mas lindo, acorte hasta el 15... Hay muchas mas pero de poca cantidad
-    reincidence_df = reincidence_df[:15]
+    reincidence_df = reincidence_df[:20]
 
     bar_width = 0.35
     fix, ax = plt.subplots()
     pos1 = np.arange(len(reincidence_df.index))
     pos2 = pos1 + bar_width
-    ax.bar(pos1, reincidence_df['Especialidad_vieja_22'], bar_width, label='Especialidad anterior')
+    ax.bar(pos1, reincidence_df['Especialidad_22'], bar_width, label='Especialidad anterior')
     ax.bar(pos2, reincidence_df['Especialidad_23'], bar_width, label='Especialidad actual')
     ax.legend()
     ax.set_xlabel('Especialidad')
     ax.set_ylabel('Cantidad de personas')
     ax.set_xticks(pos1 + bar_width / 2)
     ax.set_xticklabels(reincidence_df.index)
-    ax.tick_params(axis='x', labelrotation=45)
+    ax.tick_params(axis='x', labelrotation=90)
     plt.title('Reincidencia entre años 2022-2023')
+    plt.savefig(f'./images/reincidence/reincidence_chart.png', dpi=300, bbox_inches='tight')
     plt.show()
 
 
@@ -255,23 +241,20 @@ desercion_2022 = 'data/2022/desercion_2022.csv'
 data_2022 = 'data/2022/anon_data_2022.csv'
 desercion_2023 = 'data/2023/desercion_2023.csv'
 data_2023 = 'data/2023/anon_data_2023.csv'
-reincidencia_2023 = 'data/2023/anon_reincidencia_2023.csv'
+reincidencia_2023 = 'data/reincidence/anon_reincidence.csv'
 
-# all_years_score_chart([data_2022, data_2023], interval=0.2, puntaje='Promedio')
 
 # vacancies_applicants_chart(desertion_path=desercion_2022, data_path=data_2022, puntaje='Puntaje final')
+# vacancies_applicants_chart(desertion_path=desercion_2022, data_path=data_2022, puntaje='Examen')
 # desertion_chart(desertion_path=desercion_2022)
 # free_vacancies_chart(desertion_path=desercion_2022)
 # score_variation_by_speciality_chart(data_path=data_2022, puntaje='Examen')
 # score_variation_by_speciality_chart(data_path=data_2022, puntaje='Puntaje final')
 # score_variation_by_speciality_chart(data_path=data_2022, puntaje='Promedio')
-# score_chart(data_path=data_2022, puntaje='Examen', interval=1)
-# score_chart(data_path=data_2022, puntaje='Puntaje final', interval=1)
-# score_chart(data_path=data_2022, puntaje='Promedio', interval=0.2)
 # applicants_pie_chart(desertion_path=desercion_2022)
 # vacancies_pie_chart(desertion_path=desercion_2022)
 
-# vacancies_applicants_chart(desertion_path=desercion_2023, data_path=data_2023, puntaje='Promedio')
+# vacancies_applicants_chart(desertion_path=desercion_2023, data_path=data_2023, puntaje='Examen')
 # vacancies_applicants_chart(desertion_path=desercion_2023, data_path=data_2023, puntaje='Puntaje final')
 # desertion_chart(desertion_path=desercion_2023)
 # free_vacancies_chart(desertion_path=desercion_2023)
@@ -283,7 +266,7 @@ reincidencia_2023 = 'data/2023/anon_reincidencia_2023.csv'
 
 ###### Para TODOS los años
 
-make_reincidence_bar_plot(reincidence_path=reincidencia_2023)
+# make_reincidence_bar_plot(reincidence_path=reincidencia_2023)
 # score_chart(data_paths=[data_2023, data_2022], years=[2023, 2022], puntaje='Examen', interval=1)
 # score_chart(data_paths=[data_2023, data_2022], years=[2023, 2022], puntaje='Puntaje final', interval=1)
-# score_chart(data_paths=[data_2023, data_2022], years=[2023, 2022], puntaje='Promedio', interval=1)
+# score_chart(data_paths=[data_2023, data_2022], years=[2023, 2022], puntaje='Promedio', interval=.20)

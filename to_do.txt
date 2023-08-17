@@ -1,9 +1,10 @@
---- Hacer un line plot sobre puntajes de examen
+To Do:
+
+
+Done:
 --- Hacer un box plot sobre puntajes de examen sobre cada especialidad
 --- Reasignar colores adecuados a cada especialidad
-
-
-Hechos:
+--- Hacer un line plot sobre puntajes de examen
 --- En score chart, eliminar las filas que tienen como puntaje == 0 (promedios en 2022)
 --- Meter bien los y ticks en los puntajes
 --- Ponerle colores a cada especialidad en los Pie charts
